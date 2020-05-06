@@ -1,0 +1,30 @@
+mat-card {
+  width: 80%;
+  padding: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+  align-items: center;
+  display: inline-block;
+}
+
+.button {
+  margin-top: 1rem;
+  width: 60%;
+}
+
+.tile-image {
+  width: 100%;
+  height: auto;
+}
+
+.list-tile-item {
+  border-radius: 8px;
+}
+
+.top-right {
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
