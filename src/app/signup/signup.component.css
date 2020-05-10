@@ -1,0 +1,11 @@
+mat-card {
+  width: 100%;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+mat-form-field,
+.button-main {
+  width: 100%;
+}

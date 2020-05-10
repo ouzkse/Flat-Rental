@@ -1,0 +1,36 @@
+.spacer {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.tollbarbuttons {
+   display:inline-block;
+ }
+
+.right {
+  display:inline-block;
+}
+.left {
+  float: left;
+}
+
+.appInfo {
+  margin-right: 1rem;
+  margin-top: 1rem;
+
+}
+
+.mat-icon {
+  vertical-align: middle;
+  font-size: 50px;
+}
+.icon-text {
+  display: flex;
+  align-items: center;
+}
+
+.mat-icon {
+  font-size: 25px;
+}
+
