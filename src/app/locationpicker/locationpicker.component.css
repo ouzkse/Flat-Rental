@@ -1,0 +1,11 @@
+.locationPicker {
+  transition: none !important;
+  width: 70%;
+  margin: auto;
+  alignment: center;
+}
+
+mat-form-field {
+  width: 30%;
+  margin: 1rem;
+}

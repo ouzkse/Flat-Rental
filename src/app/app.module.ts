@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent} from './login/login.component';
 import {FooterComponent} from './footer/footer.component';
 import {ImageUploaderComponent} from './imageuploader/imageuploader.component';
+import {LocationPickerComponent} from './locationpicker/locationpicker.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -29,6 +30,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     ImageUploaderComponent,
     ToolbarComponent,
     AccountComponent,
-    SignupComponent
+    SignupComponent,
+    LocationPickerComponent
   ],
   imports: [
     AppRoutingModule,
@@ -59,7 +63,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatSelectModule,
     ReactiveFormsModule,
     MatButtonToggleModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
