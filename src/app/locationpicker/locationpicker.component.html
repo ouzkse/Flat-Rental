@@ -1,0 +1,26 @@
+<div class="locationPicker">
+  <mat-card-content>
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Country</mat-label>
+      <mat-select [value]="selectedCountry">
+        <mat-option value="option0">Turkey</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Province</mat-label>
+      <mat-select [(ngModel)]="selectedProvince" (ngModelChange)="getDistricts(selectedProvince)">
+        <mat-option *ngFor="let province of provinces" [value]="province">{{ province }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>District</mat-label>
+      <mat-select [(ngModel)]="selectedDistrict">
+        <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </mat-card-content>
+</div>
+

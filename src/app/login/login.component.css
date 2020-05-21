@@ -1,0 +1,23 @@
+mat-card {
+  width: 50%;
+  align-items: center;
+  padding: 2rem;
+}
+
+mat-form-field,
+.button-main {
+  width: 100%;
+}
+
+.button-secondary {
+  margin-top: 1rem;
+  alignment: left;
+  align-items: flex-start;
+}
+
+.sign-up {
+  display: block;
+  position: relative;
+  margin-left: 1rem;
+}
+

@@ -1,0 +1,46 @@
+<mat-card>
+  <p class="mat-body-1"
+     *ngIf="selectedFiles.length == 0">No File Selected</p>
+
+  <mat-grid-list cols="3"
+                 rowHeight="1.5:0.5"
+                 *ngIf="selectedFiles.length > 0"
+                 class="grid-list">
+    <mat-grid-tile *ngFor="let item of selectedFileUrlList"
+                   class="list-tile-item"
+                   layout-fill>
+      <img [src]="item.value"
+           class="tile-image"
+           alt="item.url">
+      <div class="top-right">
+        <button mat-mini-fab
+                color="warn" (click)="onRemoveButtonClick(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <input id="uploader"
+         type="file"
+         (change)="onFileSelected($event)"
+         accept="image/*"
+         style="display:none;">
+
+  <button class="button"
+          mat-raised-button
+          (click)="onSelectButtonClick()"
+          [disabled]="selectedFiles.length >= 6">Select</button>
+  <br>
+  <button class="button"
+          mat-raised-button
+          (click)="onUpload()"
+          color="accent"
+          [matBadgeHidden]="selectedFiles.length == 0"
+          [matBadge]="selectedFiles.length.toString()"
+          matBadgeSize="medium"
+          matBadgePosition="below after"
+          [disabled]="selectedFiles.length == 0">Upload</button>
+
+</mat-card>
