@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { KeyValuePair } from "../../models/KeyValuePair";
 
 @Component({
   selector: 'app-image-uploader',
@@ -45,9 +46,4 @@ export class ImageUploaderComponent {
     this.selectedFileUrlList.splice(position, 1);
     this.selectedFiles.splice(position, 1);
   }
-}
-
-interface KeyValuePair {
-  key: number;
-  value: string;
 }

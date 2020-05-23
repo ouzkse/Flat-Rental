@@ -1,0 +1,18 @@
+main {
+  position: relative;
+  min-height: 100%;
+  overflow-x: hidden;
+  margin: auto;
+}
+
+.main-content {
+  padding-bottom: 3rem;
+  margin: auto;
+  width: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

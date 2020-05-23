@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TaskService} from '../api/services/task.service';
+import {LocationsTaskService} from '../../services/tasks/locations/locations.task.service';
+import {City} from "../../models/City";
 
 @Component({
   selector: 'app-location-picker',
@@ -14,7 +15,7 @@ export class LocationPickerComponent implements OnInit {
   provinces = Array<string>();
   districts = Array<string>();
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: LocationsTaskService) { }
 
   ngOnInit() {
     this.getProvinces();
@@ -47,8 +48,4 @@ export class LocationPickerComponent implements OnInit {
   onDistrictChange() {
     console.log(this.selectedDistrict);
   }
-}
-
-interface City {
-  city: string;
 }

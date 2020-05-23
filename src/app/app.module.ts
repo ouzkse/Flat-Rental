@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { LoginComponent} from './login/login.component';
-import {FooterComponent} from './footer/footer.component';
-import {ImageUploaderComponent} from './imageuploader/imageuploader.component';
-import {LocationPickerComponent} from './locationpicker/locationpicker.component';
+import { AppComponent } from './components/app/app.component';
+import { LoginComponent} from './components/login/login.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {ImageUploaderComponent} from './components/imageuploader/imageuploader.component';
+import {LocationPickerComponent} from './components/locationpicker/locationpicker.component';
+import {ToolbarComponent} from './components/toolbar/toolbar.component';
+import {AccountComponent} from './components/account/account.component';
+import {SignupComponent} from './components/signup/signup.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -17,14 +20,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
-import {ToolbarComponent} from './toolbar/toolbar.component';
-import {AccountComponent} from './account/account.component';
-import {SignupComponent} from './signup/signup.component';
 import {RouterModule} from '@angular/router';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-
 import {MatNativeDateModule} from '@angular/material/core';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';

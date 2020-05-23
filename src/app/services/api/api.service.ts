@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpApiService {
+export class ApiService {
 
   readonly ROOT_URL;
   constructor(private httpClient: HttpClient) {

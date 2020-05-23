@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpApiService } from './http-api.service';
+import { ApiService } from '../../api/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService {
+export class LocationsTaskService {
 
-  constructor(private requestService: HttpApiService) { }
+  constructor(private requestService: ApiService) { }
 
   getProvinces() {
     return this.requestService.get('cities/getProvinces');

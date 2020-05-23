@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "flat-rental"
+  "defaultProject": "flat-rental",
+  "cli": {
+    "analytics": "ef459e09-62e2-41cd-be88-9865ebf8831e"
+  }
 }
