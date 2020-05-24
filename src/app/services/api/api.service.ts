@@ -14,4 +14,8 @@ export class ApiService {
   get(url: string) {
     return this.httpClient.get(this.ROOT_URL + url);
   }
+
+  post(url: string, content: object) {
+    return this.httpClient.post(this.ROOT_URL + url, content, { observe: 'response' });
+  }
 }
