@@ -24,6 +24,7 @@
            readonly
            [matDatepicker]="picker"
            max="{{minAge | date:'yyyy-MM-dd'}}"
+           [(ngModel)]="dateOfBirth"
            required>
 
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -60,9 +61,10 @@
         mat-raised-button
         color="accent"
         [disabled]="nameControl.invalid ||
-                    surnameControl.invalid ||
-                    emailControl.invalid ||
-                    passwordControl.invalid">Register
+                      surnameControl.invalid ||
+                      emailControl.invalid ||
+                      passwordControl.invalid"
+        (click)="register()">Register
 </button>
 
 <p class="mat-body-2" align="center" *ngIf="registerClicked == true">{{serviceResponse}}</p>
