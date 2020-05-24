@@ -1,26 +1,66 @@
+<p class="mat-body-2" align="center">Register</p>
 
-  <p class="mat-body-2" align="center">Sign up</p>
-
-  <mat-form-field color="accent" appearance="outline">
-    <input matInput type="text" placeholder="Name"/>
+<div class="general-container">
+  <mat-form-field color="accent"
+                  appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" [formControl]="nameControl" required/>
+    <mat-error *ngIf="nameControl.invalid">You must enter a name</mat-error>
   </mat-form-field>
+</div>
 
+<div class="general-container">
   <mat-form-field color="accent" appearance="outline">
-    <input matInput type="text" placeholder="Surname" />
+    <mat-label>Surname</mat-label>
+    <input matInput type="text" [formControl]="surnameControl" required/>
+    <mat-error *ngIf="surnameControl.invalid">You must enter a surname</mat-error>
   </mat-form-field>
+</div>
 
+<div class="date-picker-container">
   <mat-form-field color="accent" appearance="outline">
-    <input matInput [matDatepicker]="picker" placeholder="Birth Date">
+    <mat-label>Birth of Date</mat-label>
+    <input matInput
+           readonly
+           [matDatepicker]="picker"
+           max="{{minAge | date:'yyyy-MM-dd'}}"
+           required>
+
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+</div>
 
+
+<div class="email-container">
   <mat-form-field color="accent" appearance="outline">
-    <input matInput type="text" placeholder="Email Address" />
+    <mat-label>E-mail Address</mat-label>
+    <input matInput type="text" [formControl]="emailControl" required/>
+    <mat-error *ngIf="emailControl.invalid">{{getEmailErrorMessage()}}</mat-error>
   </mat-form-field>
+</div>
 
-  <mat-form-field color="accent" appearance="outline">
-    <input matInput type="password" placeholder="Password" />
-  </mat-form-field>
+<mat-form-field color="accent" appearance="outline">
+  <mat-label>Password</mat-label>
+  <label>
+    <input matInput
+           [type]="hidePassword ? 'password' : 'text'"
+           [formControl]="passwordControl"
+           [(ngModel)]="password"
+           required>
+  </label>
+  <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword">
+    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </button>
+  <mat-error *ngIf="passwordControl.invalid">{{getPasswordErrorMessage()}}</mat-error>
+</mat-form-field>
 
-  <button class="button-main" mat-raised-button color="accent">Signup</button>
+<button class="button-main"
+        mat-raised-button
+        color="accent"
+        [disabled]="nameControl.invalid ||
+                      surnameControl.invalid ||
+                      emailControl.invalid ||
+                      passwordControl.invalid">Register
+</button>

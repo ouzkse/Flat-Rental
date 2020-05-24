@@ -8,7 +8,7 @@ import {ImageUploaderComponent} from './components/imageuploader/imageuploader.c
 import {LocationPickerComponent} from './components/locationpicker/locationpicker.component';
 import {ToolbarComponent} from './components/toolbar/toolbar.component';
 import {AccountComponent} from './components/account/account.component';
-import {SignupComponent} from './components/signup/signup.component';
+import {SignUpComponent} from './components/signup/signup.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -39,7 +39,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
     ImageUploaderComponent,
     ToolbarComponent,
     AccountComponent,
-    SignupComponent,
+    SignUpComponent,
     LocationPickerComponent
   ],
   imports: [
@@ -67,6 +67,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SignupComponent, LoginComponent]
+  entryComponents: [SignUpComponent, LoginComponent]
 })
 export class AppModule { }

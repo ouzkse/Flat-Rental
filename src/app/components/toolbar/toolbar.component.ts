@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {SignupComponent} from '../signup/signup.component';
+import {SignUpComponent} from '../signup/signup.component';
 import {LoginComponent} from '../login/login.component';
 import {Router} from '@angular/router';
 
@@ -13,7 +13,7 @@ export class ToolbarComponent {
   constructor(public dialog: MatDialog, public router: Router) {}
 
   openSignupDialog(): void {
-    const dialogRef = this.dialog.open(SignupComponent, {
+    const dialogRef = this.dialog.open(SignUpComponent, {
       width: '40%'
     });
   }
