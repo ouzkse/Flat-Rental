@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {RegisterUserCredentials, UserInformation} from '../../models/RegisterUserCredentials';
 import {RegisterTaskService} from '../../services/tasks/register/register.task.service';
+import {MatDialogRef} from '@angular/material/dialog';
+import {IgxToastPosition} from 'igniteui-angular';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +11,8 @@ import {RegisterTaskService} from '../../services/tasks/register/register.task.s
   styleUrls: ['./signup.component.css']
 })
 export class SignUpComponent {
+  public toastPosition: IgxToastPosition = IgxToastPosition.Top;
+
   hidePassword = true;
   password = '';
   dateOfBirth: string;
@@ -19,7 +23,7 @@ export class SignUpComponent {
   today = new Date();
   minAge = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
 
-  constructor(private taskService: RegisterTaskService) { }
+  constructor(private taskService: RegisterTaskService, private dialogRef: MatDialogRef<SignUpComponent>) { }
 
   emailControl = new FormControl('', [Validators.required, Validators.email]);
   nameControl = new FormControl('', [Validators.required]);
@@ -45,6 +49,7 @@ export class SignUpComponent {
       console.log('SignUp Component', response);
       if (response.status === 201) {
         this.serviceResponse = 'Account is created, You can login now!';
+        this.closeDialog();
       } else {
         this.serviceResponse = 'Error while registering';
       }
@@ -59,5 +64,24 @@ export class SignUpComponent {
         this.surnameControl.value,
         this.dateOfBirth,
         ''));
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  public showToast(toast, position) {
+    switch (position) {
+      case 'middle':
+        this.toastPosition = IgxToastPosition.Middle;
+        break;
+      case 'top':
+        this.toastPosition = IgxToastPosition.Top;
+        break;
+      default:
+        this.toastPosition = IgxToastPosition.Top;
+    }
+
+    toast.show();
   }
 }

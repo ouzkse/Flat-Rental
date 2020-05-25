@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {LoginTaskService} from '../../services/tasks/login/login.task.service';
 import {LoginUserCredentials} from '../../models/LoginUserCredentials';
+import {SignUpComponent} from '../signup/signup.component';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent {
   loginClicked = false;
   serviceResponse = '';
 
-  constructor(private taskService: LoginTaskService) { }
+  constructor(public dialog: MatDialog, private taskService: LoginTaskService, private dialogRef: MatDialogRef<LoginComponent>) { }
 
   passwordControl = new FormControl('', [Validators.required, Validators.minLength(this.minPasswordLength)]);
   emailControl = new FormControl('', [Validators.required, Validators.email]);
@@ -49,5 +51,12 @@ export class LoginComponent {
 
   private getLoginCredentials() {
     return new LoginUserCredentials(this.emailControl.value, this.password);
+  }
+
+  openSignupDialog(): void {
+    this.dialogRef.close();
+    const dialogRef = this.dialog.open(SignUpComponent, {
+      width: '40%'
+    });
   }
 }
