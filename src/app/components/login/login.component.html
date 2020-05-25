@@ -1,20 +1,46 @@
-
 <p class="mat-body-2" align="center">Log in</p>
 
-<mat-form-field
-  color="accent">
-  <input matInput type="text" placeholder="Email"/>
+<div class="email-container">
+  <mat-form-field color="accent" appearance="outline">
+    <mat-label>E-mail Address</mat-label>
+    <input matInput type="text" [formControl]="emailControl" required/>
+    <mat-error *ngIf="emailControl.invalid">{{getEmailErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+
+<mat-form-field color="accent" appearance="outline">
+  <mat-label>Password</mat-label>
+  <label>
+    <input matInput
+           [type]="hidePassword ? 'password' : 'text'"
+           [formControl]="passwordControl"
+           [(ngModel)]="password"
+           required>
+  </label>
+  <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword">
+    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </button>
+  <mat-error *ngIf="passwordControl.invalid">{{getPasswordErrorMessage()}}</mat-error>
 </mat-form-field>
-<mat-form-field
-  color="accent">
-  <input matInput type="password" placeholder="Password" />
-</mat-form-field>
-<button class="button-main" mat-raised-button color="accent">Login</button>
+
+<button class="button-main"
+        mat-raised-button
+        color="accent"
+        [disabled]="emailControl.invalid ||
+                    passwordControl.invalid"
+        (click)="login()" > Login </button>
 
 <button class="button-secondary" mat-button color="accent">Forgotten your password?</button>
 
 <div class="sign-up">
-  <p>Don't have an account? <button class="button-secondary" mat-button color="accent" >Sign up</button></p>
+  <p>Don't have an account?
+    <button class="button-secondary" mat-button color="accent">Sign up</button>
+  </p>
 
 </div>
 
+<div *ngIf="loginClicked == true">
+  <p class="mat-body-2 errorArea" >{{serviceResponse}}</p>
+</div>
