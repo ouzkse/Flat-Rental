@@ -1,6 +1,12 @@
-mat-card {
-  height: 1.5rem;
+.footer {
+  border-top: 1px solid darkgrey;
+  height: 3rem;
   text-align: center;
-  display: flow-root;
+  display: table;
   width: 100%;
+}
+
+.mat-body-2 {
+  display: table-cell;
+  vertical-align: middle;
 }
