@@ -21,7 +21,6 @@ export class ToolbarComponent {
 
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '40%'
     });
   }
 

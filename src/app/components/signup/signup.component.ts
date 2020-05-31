@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {RegisterUserCredentials, UserInformation} from '../../models/authentication/RegisterUserCredentials';
 import {RegisterTaskService} from '../../services/tasks/authentication/register/register.task.service';
-import {MatDialogRef} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {IgxToastPosition} from 'igniteui-angular';
+import {LoginComponent} from "../login/login.component";
 
 @Component({
   selector: 'app-signup',
@@ -23,7 +24,8 @@ export class SignUpComponent {
   today = new Date();
   minAge = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
 
-  constructor(private taskService: RegisterTaskService, private dialogRef: MatDialogRef<SignUpComponent>) { }
+  constructor(public dialog: MatDialog, private taskService: RegisterTaskService, private dialogRef: MatDialogRef<SignUpComponent>) {
+  }
 
   emailControl = new FormControl('', [Validators.required, Validators.email]);
   nameControl = new FormControl('', [Validators.required]);
@@ -68,6 +70,13 @@ export class SignUpComponent {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  openLoginDialog(): void {
+    this.dialogRef.close();
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '40%'
+    });
   }
 
   public showToast(toast, position) {
