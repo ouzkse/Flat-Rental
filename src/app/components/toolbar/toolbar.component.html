@@ -1,6 +1,6 @@
 <mat-toolbar color="white" class="mat-elevation-z8 toolbar">
   <span>
-    <a (click)="home()">
+    <a (click)="sendEvent(toolbarNavigationValue.dashboard)">
       <button mat-fab color="accent" aria-label="Example icon button with a home icon">
           <mat-icon>home</mat-icon>
     </button>
@@ -9,8 +9,11 @@
 
   <div class="spacer"></div>
 
-  <a class = "tollbarbuttons" *ngIf="isAuthenticated()" color="accent" mat-stroked-button (click)="account()">account</a>
-  <a class = "tollbarbuttons" *ngIf="!isAuthenticated()" color="accent" mat-stroked-button (click)="openLoginDialog()">log in</a>
-  <a class = "tollbarbuttons" *ngIf="!isAuthenticated()" color="accent" mat-stroked-button (click)="openSignupDialog()">sign up</a>
+  <a (click)="sendEvent(toolbarNavigationValue.settings)" *ngIf="isAuthenticated()" class="tollbarbuttons"
+     color="accent" mat-stroked-button>account</a>
+  <a (click)="sendEvent(toolbarNavigationValue.login)" *ngIf="!isAuthenticated()" class="tollbarbuttons" color="accent"
+     mat-stroked-button>log in</a>
+  <a (click)="sendEvent(toolbarNavigationValue.register)" *ngIf="!isAuthenticated()" class="tollbarbuttons"
+     color="accent" mat-stroked-button>sign up</a>
   <a class="tollbarbuttons" *ngIf="isAuthenticated()" color="accent" mat-stroked-button (click)="logout()">Logout</a>
 </mat-toolbar>

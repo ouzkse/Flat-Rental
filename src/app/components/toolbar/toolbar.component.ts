@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {SignUpComponent} from '../signup/signup.component';
 import {LoginComponent} from '../login/login.component';
 import {Router} from '@angular/router';
 import {LoginTaskService} from '../../services/tasks/authentication/login/login.task.service';
+import {MainNavigationEnum} from "../../models/navigationcontrol/MainNavigationEnum";
+import {MainNavigationService} from "../../services/navigation/main/main.navigation.service";
 
 @Component({
   selector: 'app-toolbar',
@@ -11,33 +13,23 @@ import {LoginTaskService} from '../../services/tasks/authentication/login/login.
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-  constructor(public dialog: MatDialog, public router: Router, private taskService: LoginTaskService) { }
 
-  openSignupDialog(): void {
-    const dialogRef = this.dialog.open(SignUpComponent, {
-      width: '40%'
-    });
-  }
+  toolbarNavigationValue = MainNavigationEnum;
 
-  openLoginDialog(): void {
-    const dialogRef = this.dialog.open(LoginComponent, {
-    });
-  }
-
-  account() {
-    this.router.navigate(['account']);
-  }
-
-  home() {
-    this.router.navigate(['']);
+  constructor(private mainNavigationService: MainNavigationService, private taskService: LoginTaskService) {
   }
 
   logout() {
     this.taskService.logout();
-    this.router.navigate(['']);
+    this.mainNavigationService.setEvent();
+    // this.router.navigate(['']);
   }
 
   isAuthenticated() {
     return this.taskService.isUserLoggedIn();
+  }
+
+  sendEvent(eventType: MainNavigationEnum) {
+    this.mainNavigationService.setEvent(eventType)
   }
 }

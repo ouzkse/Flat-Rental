@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {RegisterUserCredentials, UserInformation} from '../../models/authentication/RegisterUserCredentials';
 import {RegisterTaskService} from '../../services/tasks/authentication/register/register.task.service';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {IgxToastPosition} from 'igniteui-angular';
-import {LoginComponent} from "../login/login.component";
+import {MainNavigationService} from "../../services/navigation/main/main.navigation.service";
+import {MainNavigationEnum} from "../../models/navigationcontrol/MainNavigationEnum";
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +24,9 @@ export class SignUpComponent {
   today = new Date();
   minAge = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
 
-  constructor(public dialog: MatDialog, private taskService: RegisterTaskService, private dialogRef: MatDialogRef<SignUpComponent>) {
+  navigationValue = MainNavigationEnum
+
+  constructor(private mainNavigationService: MainNavigationService, private taskService: RegisterTaskService) {
   }
 
   emailControl = new FormControl('', [Validators.required, Validators.email]);
@@ -51,7 +53,7 @@ export class SignUpComponent {
       console.log('SignUp Component', response);
       if (response.status === 201) {
         this.serviceResponse = 'Account is created, You can login now!';
-        this.closeDialog();
+        this.sendEvent(this.navigationValue.showToast)
       } else {
         this.serviceResponse = 'Error while registering';
       }
@@ -68,17 +70,6 @@ export class SignUpComponent {
         ''));
   }
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
-
-  openLoginDialog(): void {
-    this.dialogRef.close();
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '40%'
-    });
-  }
-
   public showToast(toast, position) {
     switch (position) {
       case 'middle':
@@ -92,5 +83,9 @@ export class SignUpComponent {
     }
 
     toast.show();
+  }
+
+  sendEvent(eventType: MainNavigationEnum) {
+    this.mainNavigationService.setEvent(eventType)
   }
 }

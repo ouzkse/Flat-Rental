@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {LoginTaskService} from '../../services/tasks/authentication/login/login.task.service';
 import {LoginUserCredentials} from '../../models/authentication/LoginUserCredentials';
-import {SignUpComponent} from '../signup/signup.component';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MainNavigationService} from "../../services/navigation/main/main.navigation.service";
+import {MainNavigationEnum} from "../../models/navigationcontrol/MainNavigationEnum";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,10 @@ export class LoginComponent {
   loginClicked = false;
   serviceResponse = '';
 
-  constructor(public dialog: MatDialog, private taskService: LoginTaskService, private dialogRef: MatDialogRef<LoginComponent>) { }
+  navigationValue = MainNavigationEnum
+
+  constructor(private mainNavigationService: MainNavigationService, private taskService: LoginTaskService) {
+  }
 
   passwordControl = new FormControl('', [Validators.required, Validators.minLength(this.minPasswordLength)]);
   emailControl = new FormControl('', [Validators.required, Validators.email]);
@@ -41,7 +44,7 @@ export class LoginComponent {
       console.log(response);
       if (response.status === 200) {
         localStorage.setItem('authentication_token', response.body.token);
-        // Close Dialog and navigate
+        this.sendEvent(this.navigationValue.dashboard)
       }
     }, error => {
       this.serviceResponse = 'Invalid Email or Password';
@@ -53,10 +56,7 @@ export class LoginComponent {
     return new LoginUserCredentials(this.emailControl.value, this.password);
   }
 
-  openSignupDialog(): void {
-    this.dialogRef.close();
-    const dialogRef = this.dialog.open(SignUpComponent, {
-      width: '40%'
-    });
+  sendEvent(eventType: MainNavigationEnum) {
+    this.mainNavigationService.setEvent(eventType)
   }
 }
