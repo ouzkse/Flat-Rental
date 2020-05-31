@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {LoginTaskService} from '../../services/tasks/login/login.task.service';
-import {LoginUserCredentials} from '../../models/LoginUserCredentials';
+import {LoginTaskService} from '../../services/tasks/authentication/login/login.task.service';
+import {LoginUserCredentials} from '../../models/authentication/LoginUserCredentials';
 import {SignUpComponent} from '../signup/signup.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 

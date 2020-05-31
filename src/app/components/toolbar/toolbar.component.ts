@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {SignUpComponent} from '../signup/signup.component';
 import {LoginComponent} from '../login/login.component';
 import {Router} from '@angular/router';
-import {LoginTaskService} from '../../services/tasks/login/login.task.service';
+import {LoginTaskService} from '../../services/tasks/authentication/login/login.task.service';
 
 @Component({
   selector: 'app-toolbar',

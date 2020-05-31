@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { KeyValuePair } from "../../models/KeyValuePair";
+import { KeyValuePair } from "../../models/common/KeyValuePair";
 
 @Component({
   selector: 'app-image-uploader',

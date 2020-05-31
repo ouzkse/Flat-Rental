@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {RegisterUserCredentials, UserInformation} from '../../models/RegisterUserCredentials';
-import {RegisterTaskService} from '../../services/tasks/register/register.task.service';
+import {RegisterUserCredentials, UserInformation} from '../../models/authentication/RegisterUserCredentials';
+import {RegisterTaskService} from '../../services/tasks/authentication/register/register.task.service';
 import {MatDialogRef} from '@angular/material/dialog';
 import {IgxToastPosition} from 'igniteui-angular';
 

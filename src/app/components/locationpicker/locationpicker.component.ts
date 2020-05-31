@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LocationsTaskService} from '../../services/tasks/locations/locations.task.service';
-import {City} from "../../models/City";
+import {City} from "../../models/location/City";
 
 @Component({
   selector: 'app-location-picker',

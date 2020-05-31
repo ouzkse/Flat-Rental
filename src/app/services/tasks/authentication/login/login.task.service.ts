@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {ApiService} from '../../api/api.service';
-import {LoginUserCredentials} from '../../../models/LoginUserCredentials';
+import {ApiService} from '../../../api/api.service';
+import {LoginUserCredentials} from '../../../../models/authentication/LoginUserCredentials';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class LoginTaskService {
   constructor(private requestService: ApiService) { }
 
   login(loginCredentials: LoginUserCredentials) {
-    return this.requestService.post('user/login', loginCredentials);
+    return this.requestService.post('authentication/login', loginCredentials);
   }
 
   isUserLoggedIn() {
