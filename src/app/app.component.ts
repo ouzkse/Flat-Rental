@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['account']);
+    this.router.navigate(['rentalItem']);
   }
 
   evaluateEvent(event: MainNavigationEnum) {

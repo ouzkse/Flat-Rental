@@ -10,6 +10,13 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AccountComponent } from './components/account/account.component';
 import { SignUpComponent } from './components/signup/signup.component';
 import { PopupComponent } from './components/popup/popup.component';
+import { RentalItemComponent } from './components/rentalitemcomponent/rentalitemcomponent';
+import {
+  IgxButtonModule,
+  IgxIconModule,
+  IgxCardModule,
+  IgxRippleModule
+} from 'igniteui-angular';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,7 +50,8 @@ import { IgxToastModule } from 'igniteui-angular';
     AccountComponent,
     SignUpComponent,
     LocationPickerComponent,
-    PopupComponent
+    PopupComponent,
+    RentalItemComponent
 ],
   imports: [
     AppRoutingModule,
@@ -67,7 +75,11 @@ import { IgxToastModule } from 'igniteui-angular';
     MatButtonToggleModule,
     MatAutocompleteModule,
     HttpClientModule,
-    IgxToastModule
+    IgxToastModule,
+    IgxButtonModule,
+    IgxIconModule,
+    IgxCardModule,
+    IgxRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent],
