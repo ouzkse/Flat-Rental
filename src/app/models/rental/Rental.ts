@@ -1,9 +1,18 @@
+import {RentalInfo} from './RentalInfo';
+import {LocationObject} from '../location/LocationObject';
+import {Review} from './Review';
+import {KeyValuePair} from '../common/KeyValuePair';
+
 export class Rental {
-  /* constructor(public title: string,
-              public subtitle: string,
-              public content: string | any[],
-              public price: string,
-              public imageUrl: string,
-              public icons: string[],
-              public points: string) */
+  _id: string;
+  email: string;
+  rentalInfo: RentalInfo;
+  locationInfo: LocationObject;
+  reviews: Review[];
+  price: KeyValuePair;
+  notAvailableDates: Date[];
+  photos: string[];
+  features: KeyValuePair[];
+  rentalAddedDate: Date;
+  avgPoints: number;
 }

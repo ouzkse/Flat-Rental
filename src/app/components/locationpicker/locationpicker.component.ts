@@ -19,7 +19,8 @@ export class LocationPickerComponent implements OnInit {
   districts = Array<string>();
   rentals = Array<Rental>();
 
-  constructor(private taskService: LocationsTaskService) { }
+  constructor(private taskService: LocationsTaskService) {
+  }
 
   ngOnInit() {
     this.getProvinces();
@@ -48,20 +49,16 @@ export class LocationPickerComponent implements OnInit {
   }
 
   private getSearchCredentials() {
-    return new SearchCredentials(new LocationObject("Turkey", this.selectedProvince, this.selectedDistrict), 1, 10)
+    return new SearchCredentials(new LocationObject('Turkey', this.selectedProvince, this.selectedDistrict), 1, 10);
   }
 
   searchRentals() {
     this.taskService.searchRentals(this.getSearchCredentials()).subscribe((response: any) => {
-      console.log(response);
-
-      if( response.status === 200 ) {
-        response.forEach( rentals => {
-          // this.rentals.push(new Rental())
+      if (response.status === 200) {
+        response.body.results.results.forEach(rental => {
+          this.rentals.push(rental as Rental)
         })
       }
-    }, error => {
-
     });
   }
 
