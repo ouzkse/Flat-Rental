@@ -12,7 +12,7 @@ export class LoginTaskService {
   login(loginCredentials: LoginUserCredentials) {
     return this.requestService.post('authentication/login', loginCredentials);
   }
-
+x
   isUserLoggedIn() {
     return !!localStorage.getItem('authentication_token');
   }

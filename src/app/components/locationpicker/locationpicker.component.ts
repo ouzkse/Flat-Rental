@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {LocationsTaskService} from '../../services/tasks/locations/locations.task.service';
-import {City} from "../../models/location/City";
+import {City} from '../../models/location/City';
+import {Rental} from '../../models/rental/Rental';
+import {SearchCredentials} from '../../models/rental/SearchCredentials';
+import {LocationObject} from '../../models/location/LocationObject';
 
 @Component({
   selector: 'app-location-picker',
@@ -14,6 +17,7 @@ export class LocationPickerComponent implements OnInit {
 
   provinces = Array<string>();
   districts = Array<string>();
+  rentals = Array<Rental>();
 
   constructor(private taskService: LocationsTaskService) { }
 
@@ -32,12 +36,32 @@ export class LocationPickerComponent implements OnInit {
 
   getDistricts(province: string) {
     this.districts = [];
+    this.selectedProvince = province;
 
     this.taskService.getDistricts(province).subscribe((response: City[]) => {
       console.log(response);
       response.forEach(districts => {
         this.districts.push(districts.city);
       });
+    });
+
+  }
+
+  private getSearchCredentials() {
+    return new SearchCredentials(new LocationObject("Turkey", this.selectedProvince, this.selectedDistrict), 1, 10)
+  }
+
+  searchRentals() {
+    this.taskService.searchRentals(this.getSearchCredentials()).subscribe((response: any) => {
+      console.log(response);
+
+      if( response.status === 200 ) {
+        response.forEach( rentals => {
+          // this.rentals.push(new Rental())
+        })
+      }
+    }, error => {
+
     });
   }
 

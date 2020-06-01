@@ -33,7 +33,7 @@ import {AppRoutingModule, appRoutingProviders} from './app-routing/app-routing.m
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {IgxButtonModule, IgxIconModule, IgxCardModule, IgxRippleModule} from 'igniteui-angular';
+import {IgxButtonModule, IgxIconModule, IgxCardModule, IgxRippleModule, IgxListModule} from 'igniteui-angular';
 import {CommonModule} from "@angular/common";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {IgxToastModule} from 'igniteui-angular';
@@ -86,6 +86,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     MatSidenavModule,
     MatSlideToggleModule,
     MatListModule,
+    IgxRippleModule,
+    IgxListModule,
   ],
   exports: [
     MatSidenavModule,

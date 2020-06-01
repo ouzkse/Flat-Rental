@@ -16,7 +16,7 @@
 
     <mat-form-field color="accent" appearance="outline">
       <mat-label>District</mat-label>
-      <mat-select [(ngModel)]="selectedDistrict">
+      <mat-select [(ngModel)]="selectedDistrict" (ngModelChange)="searchRentals()">
         <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
       </mat-select>
     </mat-form-field>

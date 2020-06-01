@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../api/api.service';
+import {SearchCredentials} from '../../../models/rental/SearchCredentials';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class LocationsTaskService {
 
   getDistricts(province: string) {
     return this.requestService.get('cities/' + province);
+  }
+
+  searchRentals(searchCredentials: SearchCredentials) {
+    return this.requestService.post('search/searchRentals', searchCredentials)
   }
 }
