@@ -17,6 +17,10 @@ const routes: Routes = [
       {path: 'account', component: AccountComponent},
       {path: 'hostingPreference', component: SwitchComponent}
     ]
+  },
+  {
+    path: 'browse',
+    // component: BrowseComponent,
   }
 ];
 
