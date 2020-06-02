@@ -20,10 +20,6 @@ const routes: Routes = [
       {path: 'reservations', component: ImageUploaderComponent},
       {path: 'ownedRentals', component: ImageUploaderComponent}
     ]
-  },
-  {
-    path: 'browse',
-    // component: BrowseComponent,
   }
 ];
 
