@@ -14,6 +14,7 @@ import {RentalItemComponent} from './components/rentalitemcomponent/rentalitemco
 import {SettingsComponent} from "./hostcomponents/settings/settings.component";
 import {SwitchComponent} from "./components/switch/switch.component";
 import {ReservationListComponent} from "./components/reservationlist/reservationlist.component";
+import {BrowseComponent} from "./hostcomponents/browse/browse.component";
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -34,13 +35,22 @@ import {AppRoutingModule, appRoutingProviders} from './app-routing/app-routing.m
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {IgxButtonModule, IgxIconModule, IgxCardModule, IgxRippleModule, IgxListModule} from 'igniteui-angular';
+import {
+  IgxButtonModule,
+  IgxIconModule,
+  IgxCardModule,
+  IgxRippleModule,
+  IgxListModule,
+  IgxGridModule,
+  IgxDividerModule
+} from 'igniteui-angular';
 import {CommonModule} from "@angular/common";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {IgxToastModule} from 'igniteui-angular';
 import {MatListModule} from "@angular/material/list";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {CdkTableModule} from '@angular/cdk/table';
+import {DataService} from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +66,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     RentalItemComponent,
     SettingsComponent,
     SwitchComponent,
-    ReservationListComponent
+    ReservationListComponent,
+    BrowseComponent
   ],
   imports: [
     AppRoutingModule,
@@ -91,13 +102,15 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatListModule,
     IgxRippleModule,
     IgxListModule,
-    CdkTableModule
+    CdkTableModule,
+    IgxGridModule,
+    IgxDividerModule
   ],
   exports: [
     MatSidenavModule,
     MatSlideToggleModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, DataService],
   bootstrap: [AppComponent],
   entryComponents: []
 })

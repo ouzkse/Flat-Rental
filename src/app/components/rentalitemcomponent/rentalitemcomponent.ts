@@ -1,39 +1,36 @@
-import { Component } from '@angular/core';
-import { Card } from './card.blueprint';
+import {Component, Input, OnInit} from '@angular/core';
+import {Rental} from '../../models/rental/Rental';
+import {RentaldetailService} from '../../services/rentaldetail/rentaldetail.service';
+import {RentalDataService} from '../../services/data/rental/rental.data.service';
 
 @Component({
   selector: 'app-rentalitemcomponent',
   templateUrl: './rentalitemcomponent.html',
   styleUrls: ['./rentalitemcomponent.css']
 })
-export class RentalItemComponent {
-  public card = new Card({
-    content: ['4 guests', '2 bedrooms', '2 beds', '1 bath'].join(' • '),
-    price: '₺150',
-    points: '★ 5.6',
-    icons: ['favorite'],
-    imageUrl: 'https://www.infragistics.com/angular-demos/assets/images/card/media/ny.jpg',
-    subtitle: 'Buca, İzmir',
-    title: 'Mini Apartment by Saint Peter Square'
-  });
+export class RentalItemComponent implements OnInit {
 
-  public card1 = new Card({
-    content: ['5 guests', '2 bedrooms', '2 beds', '1 bath'].join(' • '),
-    price: '₺150',
-    points: '★ 5.6',
-    icons: ['favorite'],
-    imageUrl: 'https://www.infragistics.com/angular-demos/assets/images/card/media/ny.jpg',
-    subtitle: 'Knak, İzmir',
-    title: 'New York Times Square Apartment'
-  });
+  rental = new Rental();
+  photos = [];
 
-  public card2 = new Card({
-    content: ['4 guests', '2 bedrooms', '2 beds', '1 bath'].join(' • '),
-    price: '₺200',
-    points: '★ 5.6',
-    icons: ['favorite'],
-    imageUrl: 'https://www.infragistics.com/angular-demos/assets/images/card/media/ny.jpg',
-    subtitle: 'Buca, İzmir',
-    title: 'Some Awesome Building'
-  });
+  constructor(private service: RentaldetailService, public dataService: RentalDataService) {
+    dataService.rentalDetail.subscribe( rentalDetail => {
+      this.rental = rentalDetail
+      console.log("detail alıyo"+rentalDetail.rentalAddedDate)
+    })
+  }
+
+  ngOnInit(): void {
+    this.loadSelectedRental()
+  }
+
+  loadSelectedRental() {
+    /*this.service.getSelectedRental(this.rental).subscribe( (response: any) => {
+      if (response.status === 200) {
+
+      }
+    });*/
+    this.photos = this.rental.photos;
+  }
+
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RequestOptions } from 'http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,10 @@ export class ApiService {
   }
 
   post(url: string, content: object) {
+    return this.httpClient.post(this.ROOT_URL + url, content, { observe: 'response' });
+  }
+
+  post2(url: string, content: string) {
     return this.httpClient.post(this.ROOT_URL + url, content, { observe: 'response' });
   }
 }

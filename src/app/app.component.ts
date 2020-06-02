@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['settings']);
+    this.router.navigate(['browse']);
   }
 
   evaluateEvent(event: MainNavigationEnum) {
@@ -35,9 +35,8 @@ export class AppComponent implements OnInit {
     } else if (event == MainNavigationEnum.browse) {
       this.navigate('browse')
     } else if (event == MainNavigationEnum.settings) {
-      this.navigate('account')
+      this.navigate('settings')
     } else if (event == MainNavigationEnum.showToast) {
-      // TODO
     }
   }
 

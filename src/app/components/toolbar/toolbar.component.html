@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar" color="white">
   <span>
-    <a (click)="sendEvent(toolbarNavigationValue.dashboard)">
+    <a (click)="sendEvent(toolbarNavigationValue.browse)">
       <button mat-fab color="accent" aria-label="Example icon button with a home icon">
           <mat-icon>home</mat-icon>
     </button>
@@ -10,7 +10,11 @@
   <div class="spacer"></div>
 
   <a (click)="sendEvent(toolbarNavigationValue.settings)" *ngIf="isAuthenticated()" class="tollbarbuttons"
-     color="accent" mat-stroked-button>account</a>
+     color="accent">
+    <button mat-stroked-button>
+      <mat-icon color="accent">settings</mat-icon>
+    </button>
+  </a>
   <a (click)="sendEvent(toolbarNavigationValue.login)" *ngIf="!isAuthenticated()" class="tollbarbuttons" color="accent"
      mat-stroked-button>log in</a>
   <a (click)="sendEvent(toolbarNavigationValue.register)" *ngIf="!isAuthenticated()" class="tollbarbuttons"

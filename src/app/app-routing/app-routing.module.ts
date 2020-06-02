@@ -7,6 +7,7 @@ import {SwitchComponent} from "../components/switch/switch.component";
 import {ImageUploaderComponent} from "../components/imageuploader/imageuploader.component";
 import {Reservation} from "../models/reservation/Reservation";
 import {ReservationListComponent} from "../components/reservationlist/reservationlist.component";
+import {BrowseComponent} from '../hostcomponents/browse/browse.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {path: 'reservations', component: ReservationListComponent},
       {path: 'ownedRentals', component: ImageUploaderComponent}
     ]
+  },
+  {
+    path: 'browse',
+    component: BrowseComponent
   }
 ];
 

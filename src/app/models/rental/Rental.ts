@@ -2,6 +2,7 @@ import {RentalInfo} from './RentalInfo';
 import {LocationObject} from '../location/LocationObject';
 import {Review} from './Review';
 import {KeyValuePair} from '../common/KeyValuePair';
+import {Price} from './Price';
 
 export class Rental {
   _id: string;
@@ -9,7 +10,7 @@ export class Rental {
   rentalInfo: RentalInfo;
   locationInfo: LocationObject;
   reviews: Review[];
-  price: KeyValuePair;
+  price: Price;
   notAvailableDates: Date[];
   photos: string[];
   features: KeyValuePair[];

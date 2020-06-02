@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LocationsTaskService} from '../../services/tasks/locations/locations.task.service';
 import {City} from '../../models/location/City';
 import {Rental} from '../../models/rental/Rental';
 import {SearchCredentials} from '../../models/rental/SearchCredentials';
 import {LocationObject} from '../../models/location/LocationObject';
+import {DataService} from '../../services/data.service';
+import {RentalDataService} from '../../services/data/rental/rental.data.service';
 
 @Component({
   selector: 'app-location-picker',
@@ -19,7 +21,7 @@ export class LocationPickerComponent implements OnInit {
   districts = Array<string>();
   rentals = Array<Rental>();
 
-  constructor(private taskService: LocationsTaskService) {
+  constructor(private taskService: LocationsTaskService, public dataService: RentalDataService) {
   }
 
   ngOnInit() {
@@ -55,9 +57,11 @@ export class LocationPickerComponent implements OnInit {
   searchRentals() {
     this.taskService.searchRentals(this.getSearchCredentials()).subscribe((response: any) => {
       if (response.status === 200) {
+        this.rentals = [];
         response.body.results.results.forEach(rental => {
           this.rentals.push(rental as Rental)
         })
+        this.dataService.setRental(this.rentals)
       }
     });
   }

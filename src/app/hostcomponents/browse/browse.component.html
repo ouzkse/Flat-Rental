@@ -1,0 +1,80 @@
+<app-location-picker></app-location-picker>
+
+<!--
+<div class="list-sample">
+  <igx-list>
+    <igx-list-item igxRipple igxRippleTarget=".igx-list__item-content" #item *ngFor="let rental of rentals">
+      <igx-card>
+
+        <igx-card-header>
+          <h3 igxCardHeaderTitle>{{rental.locationInfo.province}}, {{rental.locationInfo.city}}</h3>
+          <h5 igxCardHeaderSubtitle>{{rental.locationInfo.country}}</h5>
+        </igx-card-header>
+
+        <igx-card-media>
+          <img src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=50">
+        </igx-card-media>
+
+        <igx-card-content>
+          <div>{{rental.rentalInfo.bedCount}} beds,
+            {{rental.rentalInfo.bathCount}} baths,
+            {{rental.rentalInfo.maxGuestsCount}} maximum guest limit,
+            {{rental.rentalInfo.roomCount}} rooms</div>
+          <igx-divider></igx-divider>
+
+          <div>{{rental.rentalInfo.description}}</div>
+          <igx-divider></igx-divider>
+          <div> {{rental.avgPoints}}</div>
+
+        </igx-card-content>
+
+        <igx-card-content>
+
+          <p class="alignLeft">{{rental.price.amount}} {{rental.price.currency}}</p>
+          <p class="alignRight">{{rental.avgPoints}}
+            <mat-icon>star</mat-icon>
+          </p>
+
+        </igx-card-content>
+      </igx-card>
+    </igx-list-item>
+  </igx-list>
+</div>
+-->
+
+
+<div class="grid">
+  <ng-container *ngFor="let rental of rentals; let indexOfelement=index";>
+     <igx-card (click)="sendEvent(browseNavigationValue.login, rentals[indexOfelement])" class="card-wrapper">
+        <igx-card-header>
+          <h3 igxCardHeaderTitle>{{rental.locationInfo.province}}, {{rental.locationInfo.city}}</h3>
+          <h5 igxCardHeaderSubtitle>{{rental.locationInfo.country}}</h5>
+        </igx-card-header>
+
+        <igx-card-media>
+          <img src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=50">
+        </igx-card-media>
+
+        <igx-card-content>
+          <div>{{rental.rentalInfo.bedCount}} beds,
+            {{rental.rentalInfo.bathCount}} baths,
+            {{rental.rentalInfo.maxGuestsCount}} maximum guest limit,
+            {{rental.rentalInfo.roomCount}} rooms</div>
+          <igx-divider></igx-divider>
+
+          <div>{{rental.rentalInfo.description}}</div>
+          <igx-divider></igx-divider>
+
+        </igx-card-content>
+
+        <igx-card-content>
+
+          <p class="alignLeft">{{rental.price.amount}} {{rental.price.currency}}</p>
+          <p class="alignRight">{{rental.avgPoints}}
+            <mat-icon>star</mat-icon>
+          </p>
+
+        </igx-card-content>
+      </igx-card>
+  </ng-container>
+</div>

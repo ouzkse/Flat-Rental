@@ -1,6 +1,7 @@
 export class LocationObject {
-  constructor(private country: string = "Turkey",
-              private city: string,
-              private province: string) {
+
+  constructor(public country: string = "Turkey",
+              public city: string,
+              public province: string) {
   }
 }

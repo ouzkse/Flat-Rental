@@ -1,28 +1,8 @@
-<div class="sample-column card-wrapper">
-
-  <igx-card>
-    <igx-card-media height="180px">
-      <img [src]="card.imageUrl">
-    </igx-card-media>
-
-    <igx-card-header>
-      <h3 igxCardHeaderTitle>{{ card.title }}</h3>
-      <h5 igxCardHeaderSubtitle>{{ card.subtitle }}</h5>
-    </igx-card-header>
-
-    <igx-card-content>
-      <p>{{ card.content }}</p>
-    </igx-card-content>
-
-    <igx-card-content>
-      <p class="alignLeft">{{ card.price }}</p>
-      <p class="alignRight">{{ card.points }}</p>
-    </igx-card-content>
-
-
-    <igx-card-actions>
-
-    </igx-card-actions>
-
-  </igx-card>
-</div>
+<mat-card>
+  <mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-tile
+      *ngFor="let photo of photos">
+      <img src="https://picsum.photos/200/300/?random">
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
