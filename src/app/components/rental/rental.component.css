@@ -1,0 +1,16 @@
+
+.mat-card-title {
+  margin: 1rem auto;
+}
+
+.header {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.top-right {
+  display: block;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}

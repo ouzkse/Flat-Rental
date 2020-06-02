@@ -1,4 +1,4 @@
-<mat-card>
+<div class="image-picker">
   <p class="mat-body-1"
      *ngIf="selectedFiles.length == 0">No File Selected</p>
 
@@ -33,7 +33,7 @@
           (click)="onSelectButtonClick()"
           [disabled]="selectedFiles.length >= 6">Select</button>
   <br>
-  <button class="button"
+  <!-- <button class="button"
           mat-raised-button
           (click)="onUpload()"
           color="accent"
@@ -41,6 +41,5 @@
           [matBadge]="selectedFiles.length.toString()"
           matBadgeSize="medium"
           matBadgePosition="below after"
-          [disabled]="selectedFiles.length == 0">Upload</button>
-
-</mat-card>
+          [disabled]="selectedFiles.length == 0">Upload</button> -->
+</div>

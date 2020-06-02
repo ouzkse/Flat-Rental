@@ -6,6 +6,7 @@ import {SearchCredentials} from '../../models/rental/SearchCredentials';
 import {LocationObject} from '../../models/location/LocationObject';
 import {DataService} from '../../services/data.service';
 import {RentalDataService} from '../../services/data/rental/rental.data.service';
+import {LocationDataService} from "../../services/data/location/location.data.service";
 
 @Component({
   selector: 'app-location-picker',
@@ -21,7 +22,7 @@ export class LocationPickerComponent implements OnInit {
   districts = Array<string>();
   rentals = Array<Rental>();
 
-  constructor(private taskService: LocationsTaskService, public dataService: RentalDataService) {
+  constructor(private taskService: LocationsTaskService, public dataService: RentalDataService, private locationDataService: LocationDataService) {
   }
 
   ngOnInit() {
@@ -55,6 +56,7 @@ export class LocationPickerComponent implements OnInit {
   }
 
   searchRentals() {
+    this.locationDataService.setSelected(new LocationObject('Turkey', this.selectedProvince, this.selectedDistrict)) // TEST
     this.taskService.searchRentals(this.getSearchCredentials()).subscribe((response: any) => {
       if (response.status === 200) {
         this.rentals = [];
@@ -64,6 +66,11 @@ export class LocationPickerComponent implements OnInit {
         this.dataService.setRental(this.rentals)
       }
     });
+  }
+
+  onDistrictSelected() {
+    this.searchRentals() // TEST
+    this.locationDataService.setSelected(new LocationObject('Turkey', this.selectedProvince, this.selectedDistrict))
   }
 
   onProvinceChange() {

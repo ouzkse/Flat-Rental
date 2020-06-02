@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Rental} from '../../models/rental/Rental';
-import {RentaldetailService} from '../../services/rentaldetail/rentaldetail.service';
+import {RentaldetailService} from '../../services/tasks/rentaldetail/rentaldetail.service';
 import {RentalDataService} from '../../services/data/rental/rental.data.service';
 
 @Component({

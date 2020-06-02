@@ -15,6 +15,8 @@ import {SettingsComponent} from "./hostcomponents/settings/settings.component";
 import {SwitchComponent} from "./components/switch/switch.component";
 import {ReservationListComponent} from "./components/reservationlist/reservationlist.component";
 import {BrowseComponent} from "./hostcomponents/browse/browse.component";
+import {PostRentalComponent} from "./components/postrental/postrental.component";
+import {RentalComponent} from "./components/rental/rental.component";
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -45,11 +47,14 @@ import {
   IgxDividerModule
 } from 'igniteui-angular';
 import {CommonModule} from "@angular/common";
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {IgxToastModule} from 'igniteui-angular';
 import {MatListModule} from "@angular/material/list";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {CdkTableModule} from '@angular/cdk/table';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DataService} from './services/data.service';
 
 @NgModule({
@@ -67,7 +72,9 @@ import {DataService} from './services/data.service';
     SettingsComponent,
     SwitchComponent,
     ReservationListComponent,
-    BrowseComponent
+    BrowseComponent,
+    RentalComponent,
+    PostRentalComponent
   ],
   imports: [
     AppRoutingModule,
@@ -104,7 +111,10 @@ import {DataService} from './services/data.service';
     IgxListModule,
     CdkTableModule,
     IgxGridModule,
-    IgxDividerModule
+    IgxDividerModule,
+    MatStepperModule,
+    MatDialogModule,
+    MatCheckboxModule
   ],
   exports: [
     MatSidenavModule,

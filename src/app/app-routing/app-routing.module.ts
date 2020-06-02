@@ -8,6 +8,7 @@ import {ImageUploaderComponent} from "../components/imageuploader/imageuploader.
 import {Reservation} from "../models/reservation/Reservation";
 import {ReservationListComponent} from "../components/reservationlist/reservationlist.component";
 import {BrowseComponent} from '../hostcomponents/browse/browse.component';
+import {RentalComponent} from "../components/rental/rental.component";
 
 const routes: Routes = [
   {
@@ -21,7 +22,7 @@ const routes: Routes = [
       {path: 'account', component: AccountComponent},
       {path: 'hostingPreference', component: SwitchComponent},
       {path: 'reservations', component: ReservationListComponent},
-      {path: 'ownedRentals', component: ImageUploaderComponent}
+      {path: 'ownedRentals', component: RentalComponent}
     ]
   },
   {
