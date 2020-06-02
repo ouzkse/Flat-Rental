@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {RentalItemComponent} from '../components/rentalitemcomponent/rentalitemcomponent';
 import {SettingsComponent} from "../hostcomponents/settings/settings.component";
 import {SwitchComponent} from "../components/switch/switch.component";
+import {ImageUploaderComponent} from "../components/imageuploader/imageuploader.component";
 
 const routes: Routes = [
   {
@@ -15,7 +16,9 @@ const routes: Routes = [
     component: SettingsComponent,
     children: [
       {path: 'account', component: AccountComponent},
-      {path: 'hostingPreference', component: SwitchComponent}
+      {path: 'hostingPreference', component: SwitchComponent},
+      {path: 'reservations', component: ImageUploaderComponent},
+      {path: 'ownedRentals', component: ImageUploaderComponent}
     ]
   },
   {
