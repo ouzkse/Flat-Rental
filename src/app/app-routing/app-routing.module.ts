@@ -5,6 +5,8 @@ import {RentalItemComponent} from '../components/rentalitemcomponent/rentalitemc
 import {SettingsComponent} from "../hostcomponents/settings/settings.component";
 import {SwitchComponent} from "../components/switch/switch.component";
 import {ImageUploaderComponent} from "../components/imageuploader/imageuploader.component";
+import {Reservation} from "../models/reservation/Reservation";
+import {ReservationListComponent} from "../components/reservationlist/reservationlist.component";
 
 const routes: Routes = [
   {
@@ -17,7 +19,7 @@ const routes: Routes = [
     children: [
       {path: 'account', component: AccountComponent},
       {path: 'hostingPreference', component: SwitchComponent},
-      {path: 'reservations', component: ImageUploaderComponent},
+      {path: 'reservations', component: ReservationListComponent},
       {path: 'ownedRentals', component: ImageUploaderComponent}
     ]
   }

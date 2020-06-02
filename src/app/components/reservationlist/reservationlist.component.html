@@ -1,0 +1,32 @@
+<mat-accordion multi="false">
+  <mat-expansion-panel *ngFor="let reservation of reservations">
+    <mat-expansion-panel-header>
+      <p class="mat-body-2 header-status">{{ reservation.checkOutDate }}</p>
+      <mat-panel-title style="margin: auto;"> {{ reservation.status }} </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <div class="detail-container">
+
+      <table class="table">
+        <tr>
+          <th>Check In</th>
+          <td>{{ reservation.checkInDate }}</td>
+          <th>Check Out</th>
+          <td>{{ reservation.checkOutDate }}</td>
+        </tr>
+        <tr>
+          <th class="th">Host</th>
+          <td class="td">{{ reservation.hostEmail }}</td>
+        </tr>
+        <tr>
+          <th>Telephone</th>
+          <td>{{ reservation.rentalId }}</td>
+        </tr>
+      </table>
+
+      <button color="accent" mat-stroked-button> Write a Review</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+

@@ -2,14 +2,14 @@ import {KeyValuePair} from "../common/KeyValuePair";
 import {ReservationEnum} from "./ReservationEnum";
 
 export class Reservation {
-  
-  constructor(private _id: string,
-              private rentalId: string,
-              private hostEmail: string,
-              private guestEmail: string,
-              private checkInDate: Date,
-              private checkOutDate: Date,
-              private totalPrice: KeyValuePair,
-              private status: ReservationEnum = ReservationEnum.PENDING) {
+
+  constructor(public _id: string,
+              public rentalId: string,
+              public hostEmail: string,
+              public guestEmail: string,
+              public checkInDate: Date,
+              public checkOutDate: Date,
+              public totalPrice: KeyValuePair,
+              public status: ReservationEnum = ReservationEnum.PENDING) {
   }
 }

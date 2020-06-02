@@ -13,6 +13,7 @@ import {PopupComponent} from './components/popup/popup.component';
 import {RentalItemComponent} from './components/rentalitemcomponent/rentalitemcomponent';
 import {SettingsComponent} from "./hostcomponents/settings/settings.component";
 import {SwitchComponent} from "./components/switch/switch.component";
+import {ReservationListComponent} from "./components/reservationlist/reservationlist.component";
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -39,6 +40,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {IgxToastModule} from 'igniteui-angular';
 import {MatListModule} from "@angular/material/list";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     PopupComponent,
     RentalItemComponent,
     SettingsComponent,
-    SwitchComponent
+    SwitchComponent,
+    ReservationListComponent
   ],
   imports: [
     AppRoutingModule,
@@ -88,6 +91,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     MatListModule,
     IgxRippleModule,
     IgxListModule,
+    CdkTableModule
   ],
   exports: [
     MatSidenavModule,
